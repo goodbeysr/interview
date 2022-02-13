@@ -61,6 +61,18 @@ const headers = [
   },
 ];
 
+const Overlay: FC<{ message: string }> = ({ message }) => {
+  return (
+    <TableRow>
+      <TableCell colSpan={headers?.length}>
+        <Typography variant="body1" align="center">
+          {message}
+        </Typography>
+      </TableCell>
+    </TableRow>
+  );
+};
+
 export const UserList: FC<Props> = ({ users, onEdit, onDelete, onAdd }) => {
   const [order, setOrder] = useState<"asc" | "desc">("asc");
   const [orderBy, setOrderBy] = useState("username");
@@ -128,6 +140,9 @@ export const UserList: FC<Props> = ({ users, onEdit, onDelete, onAdd }) => {
                   </TableCell>
                 </TableRow>
               ))}
+              {users.length === 0 ? (
+                <Overlay message="No rows to display!!" />
+              ) : null}
             </TableBody>
           </Table>
         </TableContainer>

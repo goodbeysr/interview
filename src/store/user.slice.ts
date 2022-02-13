@@ -45,9 +45,13 @@ const UserSlice = createSlice({
       })
       //add
       .addCase(addUserThunk.fulfilled, (state, action) => {
+        const newId =
+          state.data.length === 0
+            ? 0
+            : Math.max(...state.data.map((u) => u.id));
         state.data.push({
           ...action.payload,
-          id: Math.max(...state.data.map((u) => u.id)) + 1,
+          id: newId + 1,
         });
       })
       //edit
