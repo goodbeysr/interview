@@ -10,10 +10,10 @@ import {
   Button,
   Stack,
   Divider,
-  Box
+  Box,
 } from "@mui/material";
 import { SortableHeader } from "ui/SortableHeader";
-import { User } from "models";
+import { User } from "models/User";
 import { getComparator, stableSort } from "utils";
 
 interface Props {
@@ -27,38 +27,38 @@ const headers = [
   {
     id: "id",
     label: "Id",
-    sortable: false
+    sortable: false,
   },
   {
     id: "name",
     label: "Name",
-    sortable: false
+    sortable: false,
   },
   {
     id: "username",
     label: "Username",
-    sortable: true
+    sortable: true,
   },
   {
     id: "city",
     label: "City",
-    sortable: false
+    sortable: false,
   },
   {
     id: "email",
     label: "Email",
-    sortable: false
+    sortable: false,
   },
   {
     id: "edit",
     label: "Edit",
-    sortable: false
+    sortable: false,
   },
   {
     id: "delete",
     label: "Delete",
-    sortable: false
-  }
+    sortable: false,
+  },
 ];
 
 export const UserList: FC<Props> = ({ users, onEdit, onDelete, onAdd }) => {

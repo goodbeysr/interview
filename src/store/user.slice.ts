@@ -1,11 +1,11 @@
 import { AnyAction, createSelector, createSlice } from "@reduxjs/toolkit";
-import { User } from "../models";
+import { User } from "models/User";
 import { RootState } from "./config";
 import {
   addUserThunk,
   deleteUserThunk,
   editUserThunk,
-  loadUserThunk
+  loadUserThunk,
 } from "./user.thunk";
 
 interface IUserSlice {
@@ -15,7 +15,7 @@ interface IUserSlice {
 
 const initialState: IUserSlice = {
   data: [],
-  loading: false
+  loading: false,
 };
 
 const isPendingAction = (action: AnyAction) => action.type.endsWith("/pending");
@@ -63,7 +63,7 @@ const UserSlice = createSlice({
       .addMatcher(isRejectedOrFulfilledAction, (state) => {
         state.loading = false;
       });
-  }
+  },
 });
 
 const rootSelector = (state: RootState) => state.users;

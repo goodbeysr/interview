@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { User } from "../models";
+import { User } from "models/User";
 import { useForm, Controller } from "react-hook-form";
 import {
   Box,
@@ -8,7 +8,7 @@ import {
   TextField,
   Stack,
   Divider,
-  Typography
+  Typography,
 } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 
@@ -23,7 +23,7 @@ export const UserForm: FC<Props> = ({ user, onSubmit, onCancel, loading }) => {
   const {
     handleSubmit,
     control,
-    formState: { isValid, isDirty }
+    formState: { isValid, isDirty },
   } = useForm<User>({
     mode: "all",
     reValidateMode: "onChange",
@@ -31,10 +31,10 @@ export const UserForm: FC<Props> = ({ user, onSubmit, onCancel, loading }) => {
       name: user?.name || "",
       email: user?.email || "",
       address: {
-        city: user?.address?.city || "casablanca"
+        city: user?.address?.city || "casablanca",
       },
-      username: user?.username || "defaultUserName"
-    }
+      username: user?.username || "defaultUserName",
+    },
   });
   return (
     <Paper>

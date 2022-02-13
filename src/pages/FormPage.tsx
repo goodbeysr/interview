@@ -1,5 +1,5 @@
 import { UserForm } from "components/UserForm";
-import { User } from "models";
+import { User } from "models/User";
 import { FC, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
